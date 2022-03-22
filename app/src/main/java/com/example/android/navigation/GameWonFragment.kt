@@ -42,11 +42,11 @@ class GameWonFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
-        // TODO (06) Add an onClick Handler for the nextMatch button that navigates to the gameFragment
-        // using action_gameWonFragment_to_gameFragment
         binding.nextMatchButton.setOnClickListener { v: View ->
             v.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
         }
+
+        setHasOptionsMenu(true)
 
         val args = GameWonFragmentArgs.fromBundle(arguments!!)
         Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumQuestion: ${args.numQuestion}",
